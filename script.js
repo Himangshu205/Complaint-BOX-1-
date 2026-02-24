@@ -1,11 +1,9 @@
-// DOM loaded
 document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initForm();
     initScrollEffects();
 });
 
-// Navigation smooth scrolling
 function initNavigation() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -21,7 +19,6 @@ function initNavigation() {
     });
 }
 
-// Form handling
 function initForm() {
     const form = document.getElementById('complaintForm');
     if (form) {
@@ -42,7 +39,6 @@ function submitComplaint() {
         return;
     }
 
-    // Simulate API submission
     const submitBtn = document.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = 'Submitting...';
@@ -65,7 +61,6 @@ function resetForm() {
     document.getElementById('successMessage').classList.add('hidden');
 }
 
-// Scroll functions
 function scrollToComplaint() {
     document.getElementById('complaint').scrollIntoView({ 
         behavior: 'smooth',
@@ -80,7 +75,6 @@ function scrollToAwareness() {
     });
 }
 
-// Copy emergency numbers to clipboard
 function copyNumber(number) {
     navigator.clipboard.writeText(number).then(() => {
         const card = event.target.closest('.glass-card');
@@ -101,7 +95,6 @@ function copyNumber(number) {
     });
 }
 
-// Modal controls
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
@@ -118,7 +111,6 @@ function closeModal(modalId) {
     }
 }
 
-// Navbar scroll effects
 function initScrollEffects() {
     let ticking = false;
     
@@ -144,7 +136,6 @@ function initScrollEffects() {
     });
 }
 
-// Close modals on outside click
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('modal')) {
         e.target.classList.add('hidden');
@@ -152,7 +143,6 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Form input focus effects
 document.querySelectorAll('input, textarea').forEach(input => {
     input.addEventListener('focus', function() {
         this.parentElement.style.transform = 'translateY(-2px)';
